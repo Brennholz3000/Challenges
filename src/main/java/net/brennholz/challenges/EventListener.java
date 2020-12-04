@@ -63,7 +63,7 @@ public class EventListener implements Listener {
 	@EventHandler
 	public void playerJoinEvent(PlayerJoinEvent e) {
 		Player p = e.getPlayer();
-		e.setJoinMessage("Â§6" + p.getName() + " Â§chat den Server betreten!");
+		e.setJoinMessage("§6" + p.getName() + " §chat den Server betreten!");
 		p.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(sett.maxHP);
 		sett.updateInvSlots(p);
 		if (sett.tabHP) {
@@ -74,10 +74,10 @@ public class EventListener implements Listener {
 	@EventHandler
 	public void playerQuitEvent(PlayerQuitEvent e) {
 		Player p = e.getPlayer();
-		e.setQuitMessage("Â§6" + p.getName() + " Â§chat den Server verlassen!");
+		e.setQuitMessage("§6" + p.getName() + " §chat den Server verlassen!");
 		if (Bukkit.getOnlinePlayers().size() <= 1 && timer.isActive()) {
 			timer.setActive(false);
-			Bukkit.broadcastMessage("Â§cDer Timer wurde pausert, da sich niemand mehr auf dem Server befindet!");
+			Bukkit.broadcastMessage("§cDer Timer wurde pausert, da sich niemand mehr auf dem Server befindet!");
 		}
 	}
 
@@ -105,7 +105,7 @@ public class EventListener implements Listener {
 			e.setCancelled(true);
 		} else {
 			if (timer.isActive() && sett.noBreak && p.getGameMode() == GameMode.SURVIVAL) {
-				Bukkit.broadcastMessage("Â§c" + p.getName() + " Â§6hat einen Block abgebaut!");
+				Bukkit.broadcastMessage("§c" + p.getName() + " §6hat einen Block abgebaut!");
 				if (sett.noBreakKillAll) {
 					for (Player pp : Bukkit.getOnlinePlayers()) {
 						pp.setHealth(0);
@@ -159,7 +159,7 @@ public class EventListener implements Listener {
 			if (timer.isActive() && sett.noPlace && blockType != Material.BARRIER
 					&& p.getGameMode() == GameMode.SURVIVAL && blockType != Material.END_PORTAL_FRAME
 					&& blockType != Material.OBSIDIAN) {
-				Bukkit.broadcastMessage("Â§c" + p.getName() + " Â§6hat einen Block platziert!");
+				Bukkit.broadcastMessage("§c" + p.getName() + " §6hat einen Block platziert!");
 				if (sett.noPlaceKillAll) {
 					for (Player pp : Bukkit.getOnlinePlayers()) {
 						pp.setHealth(0);
@@ -339,7 +339,7 @@ public class EventListener implements Listener {
 		Player p = e.getPlayer();
 		sett.updateInvSlots(p);
 		if (!sett.respawn && p.getHealth() <= 0) {
-			p.sendTitle("Â§cDu bist gestorben!", "Â§4Du bist nun Zuschauer", 10, 80, 10);
+			p.sendTitle("§cDu bist gestorben!", "§4Du bist nun Zuschauer", 10, 80, 10);
 			Bukkit.getScheduler().scheduleSyncDelayedTask(chl, new Runnable() {
 				@Override
 				public void run() {
@@ -492,22 +492,22 @@ public class EventListener implements Listener {
 			String sek = timer.ssek;
 			String min = timer.smin;
 			int hrs = timer.hrs;
-			Bukkit.broadcastMessage("Â§6Â§kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+			Bukkit.broadcastMessage("§6§kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 			Bukkit.broadcastMessage("");
-			Bukkit.broadcastMessage("Â§dGRATULATION! IHR HABT DIE CHALLENGE ERFOLGREICH ABGESCHLOSSEN!");
+			Bukkit.broadcastMessage("§dGRATULATION! IHR HABT DIE CHALLENGE ERFOLGREICH ABGESCHLOSSEN!");
 			if (timer.isReversed()) {
-				Bukkit.broadcastMessage("Â§aVerbleibende Zeit: Â§b" + hrs + ":" + min + ":" + sek);
+				Bukkit.broadcastMessage("§aVerbleibende Zeit: §b" + hrs + ":" + min + ":" + sek);
 			} else
-				Bukkit.broadcastMessage("Â§aBenÃ¶tigte Zeit: Â§b" + hrs + ":" + min + ":" + sek);
-			Bukkit.broadcastMessage("Â§aSeed: Â§b" + Bukkit.getWorlds().get(0).getSeed());
+				Bukkit.broadcastMessage("§aBenötigte Zeit: §b" + hrs + ":" + min + ":" + sek);
+			Bukkit.broadcastMessage("§aSeed: §b" + Bukkit.getWorlds().get(0).getSeed());
 			Bukkit.broadcastMessage("");
-			Bukkit.broadcastMessage("Â§6Â§kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+			Bukkit.broadcastMessage("§6§kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		}
 	}
 
 	public boolean fallDeath(Player p, Double dmg) {
 		if (sett.noFall) {
-			Bukkit.broadcastMessage("Â§6" + p.getName() + " Â§chat Fallschaden bekommen!");
+			Bukkit.broadcastMessage("§6" + p.getName() + " §chat Fallschaden bekommen!");
 			if (sett.noFallKillAll) {
 				for (Player pp : Bukkit.getOnlinePlayers()) {
 					pp.setHealth(0);
@@ -523,7 +523,7 @@ public class EventListener implements Listener {
 	}
 
 	public void mlgDeath(Player p) {
-		Bukkit.broadcastMessage("Â§6" + p.getName() + " Â§chat die Â§bMLG-Challenge Â§cnicht geschafft!");
+		Bukkit.broadcastMessage("§6" + p.getName() + " §chat die §bMLG-Challenge §cnicht geschafft!");
 		if (sett.mlgKillAll) {
 			for (Player pp : Bukkit.getOnlinePlayers()) {
 				pp.setHealth(0);
@@ -543,12 +543,12 @@ public class EventListener implements Listener {
 			int z = p.getLocation().getBlockZ();
 			if (sett.deathPos) {
 				Bukkit.broadcastMessage(
-						"Â§6" + p.getName() + " Â§cist gestorben! (Â§6" + w + " " + x + " " + y + " " + z + "Â§c)");
+						"§6" + p.getName() + " §cist gestorben! (§6" + w + " " + x + " " + y + " " + z + "§c)");
 			} else
-				Bukkit.broadcastMessage("Â§6" + p.getName() + " Â§cist gestorben!");
+				Bukkit.broadcastMessage("§6" + p.getName() + " §cist gestorben!");
 			if (!sett.respawn) {
 				Bukkit.getServer().broadcastMessage(
-						"Â§6Benutze Â§c/revive " + p.getName() + " [world] [x] [y] [z] Â§6zum wiederbeleben!");
+						"§6Benutze §c/revive " + p.getName() + " [world] [x] [y] [z] §6zum wiederbeleben!");
 			}
 		}
 	}
@@ -565,20 +565,20 @@ public class EventListener implements Listener {
 			Bukkit.broadcastMessage("");
 			Bukkit.broadcastMessage("");
 			if (timer.isReversed()) {
-				Bukkit.broadcastMessage("Â§cDie Challenge wurde mit einer Restzeit von Â§6" + hrs + ":" + min + ":" + sek
-						+ " Â§cabgebrochen!");
+				Bukkit.broadcastMessage("§cDie Challenge wurde mit einer Restzeit von §6" + hrs + ":" + min + ":" + sek
+						+ " §cabgebrochen!");
 			} else
 				Bukkit.broadcastMessage(
-						"Â§cDie Challenge wurde nach Â§6" + hrs + ":" + min + ":" + sek + " Â§cabgebrochen!");
-			Bukkit.broadcastMessage("Â§aSeed: Â§b" + Bukkit.getWorlds().get(0).getSeed());
-			Bukkit.broadcastMessage("Â§6Um alle wiederzubeleben benutze Â§c/revive ALL");
+						"§cDie Challenge wurde nach §6" + hrs + ":" + min + ":" + sek + " §cabgebrochen!");
+			Bukkit.broadcastMessage("§aSeed: §b" + Bukkit.getWorlds().get(0).getSeed());
+			Bukkit.broadcastMessage("§6Um alle wiederzubeleben benutze §c/revive ALL");
 		}
 	}
 
 	public void chatDamage(Player p, double dmg, String cause) {
 		String sdmg = new DecimalFormat("#.##").format(dmg);
 		if (sett.chatDMG) {
-			Bukkit.broadcastMessage("Â§6" + p.getName() + " Â§chat Â§4" + sdmg + "HP Â§cSchaden genommen durch Â§4" + cause);
+			Bukkit.broadcastMessage("§6" + p.getName() + " §chat §4" + sdmg + "HP §cSchaden genommen durch §4" + cause);
 		}
 	}
 
@@ -659,7 +659,7 @@ public class EventListener implements Listener {
 			}
 		}
 
-		if (invname.equals("Â§6HauptmenÃ¼")) {
+		if (invname.equals("§6Hauptmenü")) {
 			e.setCancelled(true);
 			switch (slot) {
 			case 10:
@@ -683,7 +683,7 @@ public class EventListener implements Listener {
 			}
 		}
 
-		if (invname.equals("Â§bChallenges")) {
+		if (invname.equals("§bChallenges")) {
 			e.setCancelled(true);
 			if (slot == 49) {
 				p.closeInventory();
@@ -724,12 +724,12 @@ public class EventListener implements Listener {
 					}
 					if (newDMG >= 0 && newDMG <= 2048) {
 						sett.sneakDMG = newDMG;
-						gui.setChallGUI(12, Material.STONE_BUTTON, "Â§6Schleichschaden = Â§c" + sett.sneakDMG + "Â§6HP",
-								"Â§7Linksklick: +1", "Â§7Rechtsklick: -1", "Â§7 Shift-Linksklick: +10",
-								"Â§7 Shift-Rechtsklick: -10");
-						gui.setChallGUI(3, Material.MAGMA_BLOCK, "Â§6Schaden beim Schleichen",
-								"Â§cSpieler erhalten Â§6" + sett.sneakDMG + "HP Â§cSchaden",
-								"Â§cwenn sie beginnen zu schleichen");
+						gui.setChallGUI(12, Material.STONE_BUTTON, "§6Schleichschaden = §c" + sett.sneakDMG + "§6HP",
+								"§7Linksklick: +1", "§7Rechtsklick: -1", "§7 Shift-Linksklick: +10",
+								"§7 Shift-Rechtsklick: -10");
+						gui.setChallGUI(3, Material.MAGMA_BLOCK, "§6Schaden beim Schleichen",
+								"§cSpieler erhalten §6" + sett.sneakDMG + "HP §cSchaden",
+								"§cwenn sie beginnen zu schleichen");
 						settingsChangeString("Schleichschaden", newDMG.toString());
 					}
 					break;
@@ -753,13 +753,13 @@ public class EventListener implements Listener {
 					break;
 				case 30:
 					sett.lavaFloor = !sett.lavaFloor;
-					gui.setChallGUI(30, gui.getLavaBucket(), "Â§6Boden ist Lava " + gui.getBool(sett.lavaFloor),
-							"Â§cHinter Spielern", "Â§cerscheint Lava");
+					gui.setChallGUI(30, gui.getLavaBucket(), "§6Boden ist Lava " + gui.getBool(sett.lavaFloor),
+							"§cHinter Spielern", "§cerscheint Lava");
 					settingsChange("Boden ist Lava", sett.lavaFloor);
 					break;
 				case 32:
 					chl.getRandomDropsManager().shuffleItems();
-					Bukkit.broadcastMessage("Â§aRandom Drops wurden neu gemischt!");
+					Bukkit.broadcastMessage("§aRandom Drops wurden neu gemischt!");
 					break;
 				case 34:
 					sett.rndDrops = !sett.rndDrops;
@@ -782,11 +782,11 @@ public class EventListener implements Listener {
 					}
 					if (newSlots >= 0 && newSlots <= 36) {
 						sett.invSlots = newSlots;
-						gui.setChallGUI(37, Material.STONE_BUTTON, "Â§6Nutzbare Slots = Â§c" + sett.invSlots,
-								"Â§7Linksklick: +1", "Â§7Rechtsklick: -1", "Â§7 Shift-Linksklick: +10",
-								"Â§7 Shift-Rechtsklick: -10");
-						gui.setChallGUI(36, Material.BARRIER, "Â§6Nutzbare Inventar Slots",
-								"Â§cSpieler kÃ¶nnen Â§6" + sett.invSlots + " Â§cSlots verwenden");
+						gui.setChallGUI(37, Material.STONE_BUTTON, "§6Nutzbare Slots = §c" + sett.invSlots,
+								"§7Linksklick: +1", "§7Rechtsklick: -1", "§7 Shift-Linksklick: +10",
+								"§7 Shift-Rechtsklick: -10");
+						gui.setChallGUI(36, Material.BARRIER, "§6Nutzbare Inventar Slots",
+								"§cSpieler können §6" + sett.invSlots + " §cSlots verwenden");
 						for (Player pp : Bukkit.getOnlinePlayers()) {
 							sett.updateInvSlots(pp);
 						}
@@ -809,16 +809,16 @@ public class EventListener implements Listener {
 					}
 					if (newMLGTime >= 0 && newMLGTime <= 36) {
 						sett.mlgTime = newMLGTime;
-						gui.setChallGUI(43, Material.STONE_BUTTON, "Â§6Max Minuten bis MLG = Â§c" + sett.mlgTime,
-								"Â§7Linksklick: +1", "Â§7Rechtsklick: -1", "Â§7 Shift-Linksklick: +10",
-								"Â§7 Shift-Rechtsklick: -10");
+						gui.setChallGUI(43, Material.STONE_BUTTON, "§6Max Minuten bis MLG = §c" + sett.mlgTime,
+								"§7Linksklick: +1", "§7Rechtsklick: -1", "§7 Shift-Linksklick: +10",
+								"§7 Shift-Rechtsklick: -10");
 						settingsChangeString("Max Minuten bis MLG", "" + newMLGTime);
 					}
 					break;
 				case 44:
 					sett.mlg = !sett.mlg;
-					gui.setChallGUI(44, gui.getMLGBucket(), "Â§bMLG-Challenge " + gui.getBool(sett.mlg),
-							"Â§cSpieler mÃ¼ssen zufÃ¤llig", "Â§ceinen MLG machen");
+					gui.setChallGUI(44, gui.getMLGBucket(), "§bMLG-Challenge " + gui.getBool(sett.mlg),
+							"§cSpieler müssen zufÃ¤llig", "§ceinen MLG machen");
 					chl.checkMLGWorld();
 					settingsChange("MLG-Challenge", sett.mlg);
 					break;
@@ -828,7 +828,7 @@ public class EventListener implements Listener {
 			}
 		}
 
-		if (invname.equals("Â§eCutClean Einstellungen")) {
+		if (invname.equals("§eCutClean Einstellungen")) {
 			e.setCancelled(true);
 			if (slot == 31) {
 				p.closeInventory();
@@ -861,7 +861,7 @@ public class EventListener implements Listener {
 			}
 		}
 
-		if (invname.equals("Â§7KillAll Einstellungen")) {
+		if (invname.equals("§7KillAll Einstellungen")) {
 			e.setCancelled(true);
 			if (slot == 31) {
 				p.closeInventory();
@@ -894,7 +894,7 @@ public class EventListener implements Listener {
 			}
 		}
 
-		if (invname.equals("Â§dLebens Einstellungen")) {
+		if (invname.equals("§dLebens Einstellungen")) {
 			e.setCancelled(true);
 			if (slot == 21) {
 				p.closeInventory();
@@ -916,7 +916,7 @@ public class EventListener implements Listener {
 				case 12:
 					sett.oneLife = !sett.oneLife;
 					gui.setLifeGUI(12, gui.getDye(sett.oneLife), gui.getBool(sett.oneLife));
-					settingsChange("Ein Leben fÃ¼r alle", sett.oneLife);
+					settingsChange("Ein Leben für alle", sett.oneLife);
 					break;
 				case 14:
 					Double newHP = sett.maxHP;
@@ -934,9 +934,9 @@ public class EventListener implements Listener {
 					}
 					if (newHP >= 1 && newHP <= 2048) {
 						sett.maxHP = newHP;
-						gui.setLifeGUI(14, Material.STONE_BUTTON, "Â§6Maximale Leben = Â§c" + sett.maxHP + "Â§6HP",
-								"Â§7Linksklick: +1", "Â§7Rechtsklick: -1", "Â§7 Shift-Linksklick: +10",
-								"Â§7 Shift-Rechtsklick: -10");
+						gui.setLifeGUI(14, Material.STONE_BUTTON, "§6Maximale Leben = §c" + sett.maxHP + "§6HP",
+								"§7Linksklick: +1", "§7Rechtsklick: -1", "§7 Shift-Linksklick: +10",
+								"§7 Shift-Rechtsklick: -10");
 						for (Player pp : Bukkit.getOnlinePlayers()) {
 							pp.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(newHP);
 							pp.setHealth(newHP);
@@ -947,7 +947,7 @@ public class EventListener implements Listener {
 				case 15:
 					sett.natRegen = !sett.natRegen;
 					gui.setLifeGUI(15, gui.getDye(sett.natRegen), gui.getBool(sett.natRegen));
-					settingsChange("NatÃ¼rliche Regeneration", sett.natRegen);
+					settingsChange("Natürliche Regeneration", sett.natRegen);
 					break;
 				case 16:
 					sett.regen = !sett.regen;
@@ -960,7 +960,7 @@ public class EventListener implements Listener {
 			}
 		}
 
-		if (invname.equals("Â§aSonstige Einstellungen")) {
+		if (invname.equals("§aSonstige Einstellungen")) {
 			e.setCancelled(true);
 			if (slot == 22) {
 				p.closeInventory();
@@ -1014,7 +1014,7 @@ public class EventListener implements Listener {
 			}
 		}
 
-		if (invname.equals("Â§6Koordinaten")) {
+		if (invname.equals("§6Koordinaten")) {
 			e.setCancelled(true);
 			if (slot >= 0 && slot <= 44) {
 				if (e.getCurrentItem() != null && e.getCurrentItem().getType() != Material.AIR
@@ -1024,7 +1024,7 @@ public class EventListener implements Listener {
 			}
 		}
 
-		if (invname.equals("Â§6Koordinaten Info")) {
+		if (invname.equals("§6Koordinaten Info")) {
 			e.setCancelled(true);
 			if (slot == 8) {
 				p.closeInventory();
@@ -1048,14 +1048,14 @@ public class EventListener implements Listener {
 				}
 		}
 
-		if (invname.equals("Â§6Koordinate lÃ¶schen")) {
+		if (invname.equals("§6Koordinate löschen")) {
 			e.setCancelled(true);
 			String posName = e.getInventory().getItem(4).getItemMeta().getDisplayName();
 			if (slot == 0) {
 				cfg.saveStr("locations." + posName.toLowerCase(), null);
 				gui.createCoordsGUI();
 				p.closeInventory();
-				p.sendMessage("Â§aKoordinate Â§6" + posName + " Â§awurde gelÃ¶scht!");
+				p.sendMessage("§aKoordinate §6" + posName + " §awurde gelöscht!");
 			} else if (slot == 8) {
 				p.closeInventory();
 				gui.newCoInfGUI(p, posName);
@@ -1066,12 +1066,12 @@ public class EventListener implements Listener {
 	public void settingsChange(String Setting, Boolean bool) {
 		String Wert;
 		if (bool) {
-			Wert = "Â§aAktiviert";
+			Wert = "§aAktiviert";
 		} else
-			Wert = "Â§4Deaktiviert";
+			Wert = "§4Deaktiviert";
 		if (sett.settingsTitle) {
 			for (Player p : Bukkit.getOnlinePlayers()) {
-				p.sendTitle("Â§c" + Setting, " Â§bist nun: " + Wert, 10, 40, 10);
+				p.sendTitle("§c" + Setting, " §bist nun: " + Wert, 10, 40, 10);
 			}
 		}
 	}
@@ -1079,7 +1079,7 @@ public class EventListener implements Listener {
 	public void settingsChangeString(String Setting, String value) {
 		if (sett.settingsTitle) {
 			for (Player p : Bukkit.getOnlinePlayers()) {
-				p.sendTitle("Â§c" + Setting, " Â§bist nun: " + value, 10, 40, 10);
+				p.sendTitle("§c" + Setting, " §bist nun: " + value, 10, 40, 10);
 			}
 		}
 	}

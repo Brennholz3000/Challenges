@@ -15,16 +15,16 @@ public class Daytime implements CommandExecutor {
 			if (p.hasPermission("challenges.daytime")) {
 				if (lable.equalsIgnoreCase("day")) {
 					Bukkit.getWorlds().get(0).setTime(1000);
-					p.sendMessage("Â§7Zeit wurde auf Â§6Tag Â§7gesetzt");
+					p.sendMessage("§7Zeit wurde auf §6Tag §7gesetzt");
 				}
 				if (lable.equalsIgnoreCase("night")) {
 					Bukkit.getWorlds().get(0).setTime(13000);
-					p.sendMessage("Â§7Zeit wurde auf Â§6Nacht Â§7gesetzt");
+					p.sendMessage("§7Zeit wurde auf §6Nacht §7gesetzt");
 				}
 			} else
-				p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+				p.sendMessage("§cDu hast hierfür keine Berechtigung");
 		} else
-			sender.sendMessage("Â§cKein Konsolenbefehl!");
+			sender.sendMessage("§cKein Konsolenbefehl!");
 		return true;
 	}
 }

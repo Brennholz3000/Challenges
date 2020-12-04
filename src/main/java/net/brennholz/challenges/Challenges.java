@@ -3,7 +3,6 @@ package net.brennholz.challenges;
 import java.io.File;
 import java.io.IOException;
 
-import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.World;
@@ -130,8 +129,8 @@ public class Challenges extends JavaPlugin {
 
 		getTimer().loadTimer();
 
-		int pluginID = 8053;
-		Metrics metrics = new Metrics(this, pluginID);
+//		int pluginID = 8053;
+//		Metrics metrics = new Metrics(this, pluginID);
 		this.getLogger().info("Plugin loaded!");
 	}
 
@@ -257,9 +256,9 @@ public class Challenges extends JavaPlugin {
 	@SuppressWarnings("deprecation")
 	public void checkMLGWorld() {
 		if (getSM().mlg && (Bukkit.getWorld("mlg_challenge") == null)) {
-			Bukkit.broadcastMessage("Â§4LAGGS MÃ–GLICH: Â§cMLG-Welt wird generiert...");
+			Bukkit.broadcastMessage("§4LAGGS MÃ–GLICH: §cMLG-Welt wird generiert...");
 			Bukkit.createWorld(new WorldCreator("mlg_challenge").type(WorldType.FLAT).generateStructures(false));
-			Bukkit.broadcastMessage("Â§aMLG-Welt wurde erfolgreich erstellt!");
+			Bukkit.broadcastMessage("§aMLG-Welt wurde erfolgreich erstellt!");
 			World w = Bukkit.getWorld("mlg_challenge");
 			w.setAnimalSpawnLimit(0);
 			w.setMonsterSpawnLimit(0);
@@ -272,9 +271,9 @@ public class Challenges extends JavaPlugin {
 	@SuppressWarnings("deprecation")
 	public void forceLoadMLGWorld() {
 		if (Bukkit.getWorld("mlg_challenge") == null) {
-			Bukkit.broadcastMessage("Â§4LAGGS MÃ–GLICH: Â§cMLG-Welt wird generiert...");
+			Bukkit.broadcastMessage("§4LAGGS MÃ–GLICH: §cMLG-Welt wird generiert...");
 			Bukkit.createWorld(new WorldCreator("mlg_challenge").type(WorldType.FLAT).generateStructures(false));
-			Bukkit.broadcastMessage("Â§aMLG-Welt wurde erfolgreich erstellt!");
+			Bukkit.broadcastMessage("§aMLG-Welt wurde erfolgreich erstellt!");
 			World w = Bukkit.getWorld("mlg_challenge");
 			w.setAnimalSpawnLimit(0);
 			w.setMonsterSpawnLimit(0);

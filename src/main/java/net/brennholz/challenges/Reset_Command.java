@@ -17,7 +17,7 @@ public class Reset_Command implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (sender.hasPermission("challenges.reset")) {
 			for (Player p : Bukkit.getOnlinePlayers()) {
-				p.sendTitle("Â§cWelt wird zurÃ¼ckgesetzt!", "Â§6Du wirst nun gekickt!", 10, 60, 10);
+				p.sendTitle("§cWelt wird zurückgesetzt!", "§6Du wirst nun gekickt!", 10, 60, 10);
 			}
 			cfg.saveStr("world_name", Bukkit.getWorlds().get(0).getName());
 			cfg.saveBool("world_reset", true);
@@ -29,14 +29,14 @@ public class Reset_Command implements CommandExecutor {
 				@Override
 				public void run() {
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						p.kickPlayer("Â§cWelt wird zurÃ¼ckgesetzt! \n Bitte warte einen Moment...");
+						p.kickPlayer("§cWelt wird zurückgesetzt! \n Bitte warte einen Moment...");
 					}
 					ConsoleCommandSender console = Bukkit.getServer().getConsoleSender();
 					Bukkit.dispatchCommand(console, "restart");
 				}
 			}, 60);
 		} else
-			sender.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+			sender.sendMessage("§cDu hast hierfür keine Berechtigung");
 		return true;
 	}
 }

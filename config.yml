@@ -1,0 +1,98 @@
+#Erlaube Spielern eine Werkbank zu benutzen
+craftingtable: true
+
+#Erlaube Spielern mit Dorfbewohnern zu handeln
+trading: true
+
+#Platziert ein Spieler einen Block stirbt er | Killall tötet alle Spieler
+noplace:
+  enabled: false
+  killall: false
+  
+#Baut ein Spieler einen Block ab stirbt er | Killall tötet alle Spieler
+nobreak:
+  enabled: false
+  killall: false
+
+#Schalte zufÃ¤llige Drops ein
+rnddrops: false
+
+#Wenn "true" stirbt ein Spieler sobald er Fallschaden erhÃ¤lt | Killall tötet alle Spieler
+deathonfall:
+  enabled: false
+  killall: false
+ 
+#Verwalte wie viel Schaden ein Spieler beim Schleichen bekommen soll
+#0 = Deaktiviert ; 1 = 0.5 Herzen ; 2 = 1 Herz ; ...
+#Soll ein Spieler beim Schleichen sterben, setze den Schaden auf die Maximalzahl an Spielerleben
+sneakdmg: 2
+
+#Welche Erze sollen geschmolzen gedroppt werden
+cutclean:
+  iron: false
+  gold: false
+  gravel: false
+  food: false
+
+#Unter dem Spieler erscheinen Magmablöcke und danach Lave, welche nach eingier Zeit wieder verschwindet
+lavafloor: false
+
+#Wie viele Slots darf der Spieler benutzen?
+invslots: 36
+
+#Deaktiviere die OffHand
+blockoffhand: false
+
+#Alle Spieler teilen sich die Herzen
+sharehp: false
+
+#Erlaube Spielern das Respawnen
+respawn: true
+
+#Ein Leben für alle. Stirbt ein Spieler, wird die Challenge abgebrochen
+onelife: false
+
+#Wenn "true" wird im Chat angezeigt, sobald ein Spieler Schaden erhÃ¤lt
+dmginchat: false
+
+#In zufÃ¤lligen AbstÃ¤nden muss man einen MLG machen | Killall tötet alle Spieler | maxtime = Maximale Zeit (in Minuten) bis wieder ein MLG getriggert wird
+mlg: 
+  enabled: false
+  killall: false
+  maxtime: 15
+
+#Ã„ndere die Regeneration(nat = Natürliche Regeneration | all = Jegliche Regeneration)
+regen:
+  nat: true
+  all: true
+
+#Beim Tod behÃ¤lt der Spieler seine Items
+keepinventory: false
+
+#In der Todesnachricht steht wo der Spieler gestorben ist
+showdeathpos: true
+
+#Herzen in Tablist
+tabhp: true
+
+#Enderpartikel wenn Timer pausiert
+pauseparticles: true
+
+#Zeigt einen Titel wenn Einstellungen geÃ¤ndert werden
+showsettingstitle: true
+
+#PVP
+pvp: true
+
+#Maximale HP eines Spielers
+maxhp: 20
+
+timer:
+  reversed: false
+  time: 0
+
+locations: {}
+
+#Nicht verÃ¤ndern! Der Server benutzt diesen Wert zum Welt-Reset!
+world_name: world
+world_reset: false
