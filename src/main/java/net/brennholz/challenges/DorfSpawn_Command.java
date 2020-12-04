@@ -36,7 +36,7 @@ public class DorfSpawn_Command implements CommandExecutor {
 							}
 						}
 					} else
-						p.sendMessage("§cKonnte kein Dorf in der NÃ¤he finden!");
+						p.sendMessage("§cKonnte kein Dorf in der Nähe finden!");
 				} else
 					p.sendMessage("§cDu befindest dich nicht in der Oberwelt!");
 			} else

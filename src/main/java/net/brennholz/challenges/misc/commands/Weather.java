@@ -18,17 +18,17 @@ public class Weather implements CommandExecutor {
 				if (lable.equalsIgnoreCase("sun")) {
 					w.setStorm(false);
 					w.setThundering(false);
-					p.sendMessage("§7Das Wetter wurde zu §6Sonnenschein §7geÃ¤ndert");
+					p.sendMessage("§7Das Wetter wurde zu §6Sonnenschein §7geändert");
 				}
 				if (lable.equalsIgnoreCase("rain")) {
 					w.setStorm(true);
 					w.setThundering(false);
-					p.sendMessage("§7Das Wetter wurde zu §6Regen §7geÃ¤ndert");
+					p.sendMessage("§7Das Wetter wurde zu §6Regen §7geändert");
 				}
 				if (lable.equalsIgnoreCase("thunder")) {
 					w.setStorm(true);
 					w.setThundering(true);
-					p.sendMessage("§7Das Wetter wurde zu §6Gewitter §7geÃ¤ndert");
+					p.sendMessage("§7Das Wetter wurde zu §6Gewitter §7geändert");
 				}
 			} else
 				p.sendMessage("§cDu hast hierfür keine Berechtigung");

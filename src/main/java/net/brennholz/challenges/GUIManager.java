@@ -30,11 +30,11 @@ public class GUIManager {
 
 	public void createChallGUI() {
 		challengesGUI.setItem(0,
-				addGUIItem(Material.CRAFTING_TABLE, "§6Erlaube WerkbÃ¤nke", "§cSpieler können WerkbÃ¤nke benutzen"));
+				addGUIItem(Material.CRAFTING_TABLE, "§6Erlaube Werkbänke", "§cSpieler können Werkbänke benutzen"));
 		challengesGUI.setItem(3, addGUIItem(Material.MAGMA_BLOCK, "§6Schaden beim Schleichen",
 				"§cSpieler erhalten §6" + sett.sneakDMG + "HP §cSchaden", "§cwenn sie beginnen zu schleichen"));
 		challengesGUI.setItem(5, addGUIItem(Material.BONE, "§6Tod bei Fallschaden", "§cDer Spieler stirbt wenn",
-				"§cer Fallschaden erhÃ¤lt"));
+				"§cer Fallschaden erhält"));
 		challengesGUI.setItem(8, addGUIItem(Material.WOODEN_PICKAXE, "§6NoBlockBreak", "§cDer Spieler stirbt wenn",
 				"§cer einen Block abbaut"));
 		challengesGUI.setItem(9,
@@ -43,7 +43,7 @@ public class GUIManager {
 				"§cer einen Block platziert"));
 		challengesGUI.setItem(27,
 				addGUIItem(Material.BARRIER, "§6Sperre Offhand", "§cSperre die zweite", "§cHand der Spieler"));
-		challengesGUI.setItem(35, addGUIItem(Material.DIAMOND_PICKAXE, "§6Random Drops", "§cBlöcke droppen zufÃ¤llig",
+		challengesGUI.setItem(35, addGUIItem(Material.DIAMOND_PICKAXE, "§6Random Drops", "§cBlöcke droppen zufällig",
 				"§cfestgelegte Items", "§4Ãœberschreibt CutClean"));
 		challengesGUI.setItem(36, addGUIItem(Material.BARRIER, "§6Nutzbare Inventar Slots",
 				"§cSpieler können §6" + sett.invSlots + " §cSlots verwenden"));
@@ -68,7 +68,7 @@ public class GUIManager {
 		challengesGUI.setItem(43, addGUIItem(Material.STONE_BUTTON, "§6Max Minuten bis MLG = §c" + sett.mlgTime,
 				"§7Linksklick: +1", "§7Rechtsklick: -1", "§7 Shift-Linksklick: +10", "§7 Shift-Rechtsklick: -10"));
 		challengesGUI.setItem(44, addGUIItem(getMLGBucket(), "§bMLG-Challenge " + getBool(sett.mlg),
-				"§cSpieler müssen zufÃ¤llig", "§ceinen MLG machen"));
+				"§cSpieler müssen zufällig", "§ceinen MLG machen"));
 		for (int i = 0; i < 54; i++) {
 			if (challengesGUI.getItem(i) == null) {
 				challengesGUI.setItem(i, addGUIItem(Material.LIGHT_BLUE_STAINED_GLASS_PANE, ""));
@@ -170,7 +170,7 @@ public class GUIManager {
 		miscGUI.setItem(5, addGUIItem(Material.ENDER_EYE, "§6Enderpartikel", "§cEnderpartikel erscheinen",
 				"§cist der Timer pausiert"));
 		miscGUI.setItem(6, addGUIItem(Material.NAME_TAG, "§6Einstellungstitel", "§cEin Titel wird angezeigt",
-				"§cÃ¤ndern sich Einstellungen"));
+				"§cändern sich Einstellungen"));
 		miscGUI.setItem(7,
 				addGUIItem(Material.CHEST, "§6KeepInventory", "§cBehalte dein Inventar", "§cwenn du stirbst"));
 		miscGUI.setItem(22, addGUIItem(Material.ARROW, "§6Zurück zum Hauptmenü"));
@@ -265,7 +265,7 @@ public class GUIManager {
 
 	public void newCoDelGUI(Player p, String name) {
 		Inventory delGUI = Bukkit.createInventory(null, 9, "§6Koordinate löschen");
-		delGUI.setItem(0, addGUIItem(Material.LIME_TERRACOTTA, "§aBestÃ¤tigen", "§6" + name + " wird gelöscht"));
+		delGUI.setItem(0, addGUIItem(Material.LIME_TERRACOTTA, "§aBestätigen", "§6" + name + " wird gelöscht"));
 		delGUI.setItem(4, addGUIItem(Material.ORANGE_BANNER, name));
 		delGUI.setItem(8, addGUIItem(Material.RED_TERRACOTTA, "§cAbbrechen", "§6Zurück zur Info"));
 		for (int i = 1; i < 8; i++) {

@@ -14,10 +14,10 @@ nobreak:
   enabled: false
   killall: false
 
-#Schalte zufÃ¤llige Drops ein
+#Schalte zufällige Drops ein
 rnddrops: false
 
-#Wenn "true" stirbt ein Spieler sobald er Fallschaden erhÃ¤lt | Killall tötet alle Spieler
+#Wenn "true" stirbt ein Spieler sobald er Fallschaden erhält | Killall tötet alle Spieler
 deathonfall:
   enabled: false
   killall: false
@@ -52,10 +52,10 @@ respawn: true
 #Ein Leben für alle. Stirbt ein Spieler, wird die Challenge abgebrochen
 onelife: false
 
-#Wenn "true" wird im Chat angezeigt, sobald ein Spieler Schaden erhÃ¤lt
+#Wenn "true" wird im Chat angezeigt, sobald ein Spieler Schaden erhält
 dmginchat: false
 
-#In zufÃ¤lligen AbstÃ¤nden muss man einen MLG machen | Killall tötet alle Spieler | maxtime = Maximale Zeit (in Minuten) bis wieder ein MLG getriggert wird
+#In zufälligen Abständen muss man einen MLG machen | Killall tötet alle Spieler | maxtime = Maximale Zeit (in Minuten) bis wieder ein MLG getriggert wird
 mlg: 
   enabled: false
   killall: false
@@ -66,7 +66,7 @@ regen:
   nat: true
   all: true
 
-#Beim Tod behÃ¤lt der Spieler seine Items
+#Beim Tod behält der Spieler seine Items
 keepinventory: false
 
 #In der Todesnachricht steht wo der Spieler gestorben ist
@@ -78,7 +78,7 @@ tabhp: true
 #Enderpartikel wenn Timer pausiert
 pauseparticles: true
 
-#Zeigt einen Titel wenn Einstellungen geÃ¤ndert werden
+#Zeigt einen Titel wenn Einstellungen geändert werden
 showsettingstitle: true
 
 #PVP
@@ -93,6 +93,6 @@ timer:
 
 locations: {}
 
-#Nicht verÃ¤ndern! Der Server benutzt diesen Wert zum Welt-Reset!
+#Nicht verändern! Der Server benutzt diesen Wert zum Welt-Reset!
 world_name: world
 world_reset: false

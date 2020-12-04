@@ -696,7 +696,7 @@ public class EventListener implements Listener {
 				case 1:
 					sett.craftingTable = !sett.craftingTable;
 					gui.setChallGUI(1, gui.getDye(sett.craftingTable), gui.getBool(sett.craftingTable));
-					settingsChange("Erlaube WerkbÃ¤nke", sett.craftingTable);
+					settingsChange("Erlaube Werkbänke", sett.craftingTable);
 					break;
 				case 7:
 					sett.noBreak = !sett.noBreak;
@@ -818,7 +818,7 @@ public class EventListener implements Listener {
 				case 44:
 					sett.mlg = !sett.mlg;
 					gui.setChallGUI(44, gui.getMLGBucket(), "§bMLG-Challenge " + gui.getBool(sett.mlg),
-							"§cSpieler müssen zufÃ¤llig", "§ceinen MLG machen");
+							"§cSpieler müssen zufällig", "§ceinen MLG machen");
 					chl.checkMLGWorld();
 					settingsChange("MLG-Challenge", sett.mlg);
 					break;

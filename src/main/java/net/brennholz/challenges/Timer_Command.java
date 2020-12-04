@@ -7,6 +7,7 @@ import org.bukkit.Effect;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -47,7 +48,7 @@ public class Timer_Command implements CommandExecutor {
 						timer.setActive(true);
 						Bukkit.broadcastMessage("§aDer Timer wird fortgesetzt!");
 					} else
-						sender.sendMessage("§cDer Timer lÃ¤uft bereits!");
+						sender.sendMessage("§cDer Timer läuft bereits!");
 				} else if (args[0].equalsIgnoreCase("pause")) {
 					if (timer.isActive()) {
 						timer.setActive(false);
@@ -60,9 +61,9 @@ public class Timer_Command implements CommandExecutor {
 				} else if (args[0].equalsIgnoreCase("reverse")) {
 					timer.setReversed(!timer.isReversed());
 					if (timer.isReversed()) {
-						Bukkit.broadcastMessage("§5Der Timer lÃ¤uft nun rückwÃ¤rts!");
+						Bukkit.broadcastMessage("§5Der Timer läuft nun rückwärts!");
 					} else
-						Bukkit.broadcastMessage("§9Der Timer lÃ¤uft nun vorwÃ¤rts!");
+						Bukkit.broadcastMessage("§9Der Timer läuft nun vorwärts!");
 				} else if (args[0].equalsIgnoreCase("forcemlg")) {
 					chl.forceLoadMLGWorld();
 					if (!isMLG()) {
@@ -91,7 +92,7 @@ public class Timer_Command implements CommandExecutor {
 				sender.sendMessage("§c/timer pause §4- §6Pausiere den Timer");
 				sender.sendMessage("§c/timer reset §4- §6Setze den Timer zurück");
 				sender.sendMessage("§c/timer set [Zeit in Sekunden] §4- §6Setze den Timer auf eine bestimmte Zeit");
-				sender.sendMessage("§c/timer reverse §4- §6Ã„ndere ob der Timer vor- oder rückwÃ¤rts lÃ¤uft");
+				sender.sendMessage("§c/timer reverse §4- §6Ã„ndere ob der Timer vor- oder rückwärts läuft");
 			}
 		} else
 			sender.sendMessage("§cDu hast hierfür keine Berechtigung");
@@ -201,6 +202,14 @@ public class Timer_Command implements CommandExecutor {
 
 				} else
 					for (Player p : Bukkit.getOnlinePlayers()) {
+						if (!p.isOp()) {
+							p.setGameMode(GameMode.ADVENTURE);
+							p.getInventory().clear();
+							if (Bukkit.getServer().getWorld("world").getSpawnLocation().distance(p.getLocation()) > 50) {
+								p.teleport(Bukkit.getServer().getWorld("world").getSpawnLocation().add(0, 10, 0));
+								p.playSound(p.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1f, 1f);
+							}
+						}
 						Actionbar.sendActionBarMessage(p, "§6Timer pausiert...");
 						if (sett.pauseParticles && p.getGameMode() != GameMode.SPECTATOR) {
 							p.getWorld().playEffect(p.getLocation(), Effect.ENDER_SIGNAL, 1);

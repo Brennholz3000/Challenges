@@ -248,7 +248,7 @@ public class Challenges extends JavaPlugin {
 				getLogger().info(ChatColor.DARK_RED
 						+ "Ändere den Wert in der 'bukkit.yml' auf 'true' und starte den Server neu!");
 			}
-			getLogger().info(ChatColor.DARK_RED + "Server fährt herunter...");
+			getLogger().info(ChatColor.DARK_RED + "Server f�hrt herunter...");
 			return true;
 		}
 	}

@@ -17,7 +17,7 @@ public class Challenges_Command implements CommandExecutor {
 			sender.sendMessage("§c/Timer §4- §6Verwalte den Timer");
 			sender.sendMessage("§c/Revive §4- §6Wiederbelebe Spieler");
 			sender.sendMessage("§c/Backpack §6| §c/bp §4- §6Ã–ffne das Backpack");
-			sender.sendMessage("§c/Dorfspawn §4- §6Teleportiert alle zum nÃ¤chsten Dorf");
+			sender.sendMessage("§c/Dorfspawn §4- §6Teleportiert alle zum nächsten Dorf");
 			sender.sendMessage("§c/Reset §4- §6Generiert eine neue Welt, resettet Timer/Coords und Backpack");
 		} else
 			sender.sendMessage("§cDu hast hierfür keine Berechtigung");
