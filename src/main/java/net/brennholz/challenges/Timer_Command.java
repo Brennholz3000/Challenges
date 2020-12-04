@@ -37,6 +37,7 @@ public class Timer_Command implements CommandExecutor {
 	public static int mlgCount = 0;
 	public static boolean mlg_active = false;
 	public Random random = new Random();
+	private boolean startedOnce = false;
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String lable, String[] args) {
@@ -47,6 +48,7 @@ public class Timer_Command implements CommandExecutor {
 					if (!timer.isActive()) {
 						timer.setActive(true);
 						Bukkit.broadcastMessage("§aDer Timer wird fortgesetzt!");
+						startedOnce = true;
 					} else
 						sender.sendMessage("§cDer Timer läuft bereits!");
 				} else if (args[0].equalsIgnoreCase("pause")) {
@@ -205,7 +207,7 @@ public class Timer_Command implements CommandExecutor {
 						if (!p.isOp()) {
 							p.setGameMode(GameMode.ADVENTURE);
 							p.getInventory().clear();
-							if (Bukkit.getServer().getWorld("world").getSpawnLocation().distance(p.getLocation()) > 50) {
+							if (Bukkit.getServer().getWorld("world").getSpawnLocation().distance(p.getLocation()) > 50 && !startedOnce) {
 								p.teleport(Bukkit.getServer().getWorld("world").getSpawnLocation().add(0, 10, 0));
 								p.playSound(p.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1f, 1f);
 							}
