@@ -49,6 +49,9 @@ public class Timer_Command implements CommandExecutor {
 						timer.setActive(true);
 						Bukkit.broadcastMessage("§aDer Timer wird fortgesetzt!");
 						startedOnce = true;
+						for (Player p : Bukkit.getOnlinePlayers()) {
+							p.setGameMode(GameMode.SURVIVAL);
+						}
 					} else
 						sender.sendMessage("§cDer Timer läuft bereits!");
 				} else if (args[0].equalsIgnoreCase("pause")) {

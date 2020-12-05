@@ -44,7 +44,7 @@ public class GUIManager {
 		challengesGUI.setItem(27,
 				addGUIItem(Material.BARRIER, "§6Sperre Offhand", "§cSperre die zweite", "§cHand der Spieler"));
 		challengesGUI.setItem(35, addGUIItem(Material.DIAMOND_PICKAXE, "§6Random Drops", "§cBlöcke droppen zufällig",
-				"§cfestgelegte Items", "§4Ãœberschreibt CutClean"));
+				"§cfestgelegte Items", "§4Überschreibt CutClean"));
 		challengesGUI.setItem(36, addGUIItem(Material.BARRIER, "§6Nutzbare Inventar Slots",
 				"§cSpieler können §6" + sett.invSlots + " §cSlots verwenden"));
 		challengesGUI.setItem(49, addGUIItem(Material.ARROW, "§6Zurück zum Hauptmenü"));
@@ -132,13 +132,13 @@ public class GUIManager {
 				"§csich die Herzen"));
 		lifeGUI.setItem(2, addGUIItem(Material.TOTEM_OF_UNDYING, "§6Respawn", "§cSpieler können respawnen"));
 		lifeGUI.setItem(3, addGUIItem(Material.POPPY, "§6Ein Leben für alle", "§cStirbt ein Spieler, ist",
-				"§cdie Challenge vorbei", "§4Ãœberschreibt Respawn"));
+				"§cdie Challenge vorbei", "§4Überschreibt Respawn"));
 		lifeGUI.setItem(5,
 				addGUIItem(Material.RED_DYE, "§6Maximale Leben", "§cLege die maximalen Leben", "§cder Spieler fest"));
 		lifeGUI.setItem(6, addGUIItem(Material.GOLDEN_APPLE, "§6Natürliche Regeneration", "§cSpieler regenerieren",
 				"§cwenn sie Essen"));
 		lifeGUI.setItem(7, addGUIItem(Material.ENCHANTED_GOLDEN_APPLE, "§6Jegliche Regeneration",
-				"§cSpieler können regenerieren", "§4Ãœberschreibt Natürliche Regeneration"));
+				"§cSpieler können regenerieren", "§4Überschreibt Natürliche Regeneration"));
 		lifeGUI.setItem(21, addGUIItem(Material.ARROW, "§6Zurück zum Hauptmenü"));
 		lifeGUI.setItem(23, addGUIPot(PotionEffectType.HEAL, "§6Alle Spieler heilen"));
 
@@ -254,7 +254,7 @@ public class GUIManager {
 						"§cY: " + cfg.getInt("locations." + name.toLowerCase() + ".y"),
 						"§cZ: " + cfg.getInt("locations." + name.toLowerCase() + ".z")));
 		infoGUI.setItem(6, addGUIItem(Material.ENDER_PEARL, "§5Zu " + name + " teleportieren"));
-		infoGUI.setItem(8, addGUIItem(Material.ARROW, "§cZurück zur Ãœbersicht"));
+		infoGUI.setItem(8, addGUIItem(Material.ARROW, "§cZurück zur Übersicht"));
 		for (int i = 1; i < 8; i++) {
 			if (infoGUI.getItem(i) == null) {
 				infoGUI.setItem(i, addGUIItem(Material.ORANGE_STAINED_GLASS_PANE, ""));

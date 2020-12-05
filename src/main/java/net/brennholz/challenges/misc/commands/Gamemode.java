@@ -19,7 +19,7 @@ public class Gamemode implements CommandExecutor {
 				if (args.length == 1) {
 					if (args[0].equalsIgnoreCase("survival") || args[0].equals("0")) {
 						p.setGameMode(GameMode.SURVIVAL);
-						p.sendMessage("§7Dein Spielmodus wurde zu §6Ãœberleben §7geändert");
+						p.sendMessage("§7Dein Spielmodus wurde zu §6Überleben §7geändert");
 					} else if (args[0].equalsIgnoreCase("creative") || args[0].equals("1")
 							|| args[0].equalsIgnoreCase("c")) {
 						p.setGameMode(GameMode.CREATIVE);
@@ -39,7 +39,7 @@ public class Gamemode implements CommandExecutor {
 						Player onp = (Player) offp;
 						if (args[0].equalsIgnoreCase("survival") || args[0].equals("0")) {
 							onp.setGameMode(GameMode.SURVIVAL);
-							onp.sendMessage("§7Dein Spielmodus wurde zu §6Ãœberleben §7geändert");
+							onp.sendMessage("§7Dein Spielmodus wurde zu §6Überleben §7geändert");
 						} else if (args[0].equalsIgnoreCase("creative") || args[0].equals("1")
 								|| args[0].equalsIgnoreCase("c")) {
 							onp.setGameMode(GameMode.CREATIVE);
