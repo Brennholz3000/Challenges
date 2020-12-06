@@ -5,6 +5,7 @@ import java.util.Random;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.GameMode;
+import org.bukkit.GameRule;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
@@ -52,6 +53,7 @@ public class Timer_Command implements CommandExecutor {
 						for (Player p : Bukkit.getOnlinePlayers()) {
 							p.setGameMode(GameMode.SURVIVAL);
 						}
+						Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_DAYLIGHT_CYCLE, true);
 					} else
 						sender.sendMessage("§cDer Timer läuft bereits!");
 				} else if (args[0].equalsIgnoreCase("pause")) {
@@ -205,7 +207,7 @@ public class Timer_Command implements CommandExecutor {
 						}
 					}
 
-				} else
+				} else {
 					for (Player p : Bukkit.getOnlinePlayers()) {
 						if (!p.isOp()) {
 							p.setGameMode(GameMode.ADVENTURE);
@@ -220,6 +222,8 @@ public class Timer_Command implements CommandExecutor {
 							p.getWorld().playEffect(p.getLocation(), Effect.ENDER_SIGNAL, 1);
 						}
 					}
+					Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
+				}
 			}
 		}.runTaskTimer(chl, 0L, 20L);
 	}
