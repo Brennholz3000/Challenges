@@ -25,7 +25,7 @@ deathonfall:
 #Verwalte wie viel Schaden ein Spieler beim Schleichen bekommen soll
 #0 = Deaktiviert ; 1 = 0.5 Herzen ; 2 = 1 Herz ; ...
 #Soll ein Spieler beim Schleichen sterben, setze den Schaden auf die Maximalzahl an Spielerleben
-sneakdmg: 2
+sneakdmg: 0
 
 #Welche Erze sollen geschmolzen gedroppt werden
 cutclean:
