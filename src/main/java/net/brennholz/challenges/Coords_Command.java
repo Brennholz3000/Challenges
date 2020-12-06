@@ -33,7 +33,7 @@ public class Coords_Command implements CommandExecutor {
 					if (p.hasPermission("challenges.coords.view")) {
 						p.openInventory(gui.getCoordsGUI());
 					} else
-						p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+						p.sendMessage("§cDu hast hierfür keine Berechtigung");
 				} else if (args.length == 1) {
 					if (args[0].equalsIgnoreCase("share")) {
 						if (p.hasPermission("challenges.coords.share")) {
@@ -43,19 +43,19 @@ public class Coords_Command implements CommandExecutor {
 							z = p.getLocation().getBlockZ();
 							wEnv = w.getEnvironment();
 							envStr = getEnv(wEnv);
-							Bukkit.broadcastMessage("Â§9Position von Â§a" + pName);
-							Bukkit.broadcastMessage("Â§7â¤·" + " " + envStr + "Â§7, Â§c" + x + "Â§7, Â§c" + y + "Â§7, Â§c" + z);
+							Bukkit.broadcastMessage("§9Position von §a" + pName);
+							Bukkit.broadcastMessage("§7¤·" + " " + envStr + "§7, §c" + x + "§7, §c" + y + "§7, §c" + z);
 						} else
-							p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+							p.sendMessage("§cDu hast hierfür keine Berechtigung");
 					} else if (args[0].equalsIgnoreCase("get")) {
 						if (p.hasPermission("challenges.coords.get")) {
-							p.sendMessage("Â§6Gespeicherte Koordinaten:");
+							p.sendMessage("§6Gespeicherte Koordinaten:");
 							for (String pos : chl.getConfig().getConfigurationSection("locations").getKeys(false)) {
-								p.sendMessage("Â§7- Â§e" + cfg.getStr("locations." + pos + ".name"));
+								p.sendMessage("§7- §e" + cfg.getStr("locations." + pos + ".name"));
 							}
-							p.sendMessage("Â§6FÃ¼r bestimmte Koordinate benutze Â§e/coords get <Name>");
+							p.sendMessage("§6Für bestimmte Koordinate benutze §e/coords get <Name>");
 						} else
-							p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+							p.sendMessage("§cDu hast hierfür keine Berechtigung");
 					} else
 						sendHelp(p);
 				} else if (args.length >= 2) {
@@ -80,12 +80,12 @@ public class Coords_Command implements CommandExecutor {
 
 								gui.createCoordsGUI();
 
-								Bukkit.broadcastMessage("Â§a" + pName + " Â§7Â» Â§e" + posName + " Â§6[" + envStr + "Â§7, Â§c"
-										+ x + "Â§7, Â§c" + y + "Â§7, Â§c" + z + "Â§6]");
+								Bukkit.broadcastMessage("§a" + pName + " §7» §e" + posName + " §6[" + envStr + "§7, §c"
+										+ x + "§7, §c" + y + "§7, §c" + z + "§6]");
 							} else
-								p.sendMessage("Â§cDiese Position existiert bereits!");
+								p.sendMessage("§cDiese Position existiert bereits!");
 						} else
-							p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+							p.sendMessage("§cDu hast hierfür keine Berechtigung");
 					} else if (args[0].equalsIgnoreCase("get")) {
 						if (p.hasPermission("challenges.coords.get")) {
 							if (chl.getConfig().contains("locations." + pos)) {
@@ -97,20 +97,20 @@ public class Coords_Command implements CommandExecutor {
 								envStr = getEnv(Bukkit.getWorld(wName).getEnvironment());
 
 								p.sendMessage(
-										"Â§e" + posName + " Â§7Â» " + envStr + "Â§7, Â§c" + x + "Â§7, Â§c" + y + "Â§7, Â§c" + z);
+										"§e" + posName + " §7» " + envStr + "§7, §c" + x + "§7, §c" + y + "§7, §c" + z);
 							} else
-								p.sendMessage("Â§cDiese Position existiert nicht!");
+								p.sendMessage("§cDiese Position existiert nicht!");
 						} else
-							p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+							p.sendMessage("§cDu hast hierfür keine Berechtigung");
 					} else if (args[0].equalsIgnoreCase("delete")) {
 						if (p.hasPermission("challenges.coords.delete")) {
 							if (chl.getConfig().contains("locations." + pos)) {
 								posName = cfg.getStr("locations." + pos + ".name");
 								gui.newCoDelGUI(p, posName);
 							} else
-								p.sendMessage("Â§cDiese Position existiert nicht!");
+								p.sendMessage("§cDiese Position existiert nicht!");
 						} else
-							p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+							p.sendMessage("§cDu hast hierfür keine Berechtigung");
 					} else if (args[0].equalsIgnoreCase("tp") || args[0].equalsIgnoreCase("teleport")) {
 						if (p.hasPermission("challenges.coords.teleport")) {
 							if (chl.getConfig().contains("locations." + pos)) {
@@ -121,43 +121,43 @@ public class Coords_Command implements CommandExecutor {
 								z = cfg.getInt("locations." + pos + ".z");
 								Location loc = new Location(Bukkit.getWorld(wName), x, y, z);
 								p.teleport(loc);
-								p.sendMessage("Â§aDu wurdest zur Koordinate Â§6" + posName + " Â§ateleportiert!");
+								p.sendMessage("§aDu wurdest zur Koordinate §6" + posName + " §ateleportiert!");
 							} else
-								p.sendMessage("Â§cDiese Position existiert nicht!");
+								p.sendMessage("§cDiese Position existiert nicht!");
 						} else
-							p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+							p.sendMessage("§cDu hast hierfür keine Berechtigung");
 					} else
 						sendHelp(p);
 				} else
 					sendHelp(p);
 			} else
-				p.sendMessage("Â§cDieser Befehl ist in dieser Welt nicht verfÃ¼gbar!");
+				p.sendMessage("§cDieser Befehl ist in dieser Welt nicht verfügbar!");
 		} else
-			sender.sendMessage("Â§cKein Konsolenbefehl!");
+			sender.sendMessage("§cKein Konsolenbefehl!");
 		return true;
 	}
 
 	private void sendHelp(Player p) {
-		p.sendMessage("Â§c~~~~~ Â§6Coords Command Â§c~~~~~");
-		p.sendMessage("Â§c/Coords Â§4- Â§6Ã–ffne die GUI");
-		p.sendMessage("Â§c/Coords Share Â§4- Â§6Teile deine Position");
-		p.sendMessage("Â§c/Coords Get Â§4- Â§6Listet alle Koordinaten im Chat auf");
-		p.sendMessage("Â§c/Coords Get <Name> Â§4- Â§6Zeigt die Koordinate im Chat");
-		p.sendMessage("Â§c/Coords Save <Name> Â§4- Â§6Speichert deine Koordinate");
-		p.sendMessage("Â§c/Coords Delete Â§4- Â§6LÃ¶sche die Koordinate");
-		p.sendMessage("Â§c/Coords TP Â§6| Â§cTeleport Â§4- Â§6Teleportiert dich zur Koordinate");
+		p.sendMessage("§c~~~~~ §6Coords Command §c~~~~~");
+		p.sendMessage("§c/Coords §4- §6Ã–ffne die GUI");
+		p.sendMessage("§c/Coords Share §4- §6Teile deine Position");
+		p.sendMessage("§c/Coords Get §4- §6Listet alle Koordinaten im Chat auf");
+		p.sendMessage("§c/Coords Get <Name> §4- §6Zeigt die Koordinate im Chat");
+		p.sendMessage("§c/Coords Save <Name> §4- §6Speichert deine Koordinate");
+		p.sendMessage("§c/Coords Delete §4- §6Lösche die Koordinate");
+		p.sendMessage("§c/Coords TP §6| §cTeleport §4- §6Teleportiert dich zur Koordinate");
 	}
 
 	public String getEnv(Environment env) {
 		String wEnv;
 		if (env == Environment.NORMAL) {
-			wEnv = "Â§3Overworld";
+			wEnv = "§3Overworld";
 		} else if (env == Environment.NETHER) {
-			wEnv = "Â§4Nether";
+			wEnv = "§4Nether";
 		} else if (env == Environment.THE_END) {
-			wEnv = "Â§5End";
+			wEnv = "§5End";
 		} else
-			wEnv = "Â§7Unbekannt";
+			wEnv = "§7Unbekannt";
 		return wEnv;
 	}
 }

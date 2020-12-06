@@ -25,7 +25,7 @@ public class Revive_Command implements CommandExecutor {
 						p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
 						p.setGameMode(GameMode.SURVIVAL);
 					}
-					chl.getServer().broadcastMessage("Â§bAlle Spieler wurden wiederbelebt! Â§aEs kann weiter gehen!");
+					chl.getServer().broadcastMessage("§bAlle Spieler wurden wiederbelebt! §aEs kann weiter gehen!");
 				} else {
 					OfflinePlayer other = (Bukkit.getServer().getOfflinePlayer(args[0]));
 					if (other.isOnline()) {
@@ -33,9 +33,9 @@ public class Revive_Command implements CommandExecutor {
 						p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
 						p.setGameMode(GameMode.SURVIVAL);
 						chl.getServer().broadcastMessage(
-								"Â§b" + p.getName() + " Â§awurde von Â§b" + sender.getName() + " Â§awiederbelebt!");
+								"§b" + p.getName() + " §awurde von §b" + sender.getName() + " §awiederbelebt!");
 					} else
-						sender.sendMessage("Â§cDieser Spieler ist nicht online!");
+						sender.sendMessage("§cDieser Spieler ist nicht online!");
 				}
 			} else if (args.length >= 5) {
 				World w = Bukkit.getWorld(args[1]);
@@ -49,8 +49,8 @@ public class Revive_Command implements CommandExecutor {
 						p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
 						p.setGameMode(GameMode.SURVIVAL);
 					}
-					chl.getServer().broadcastMessage("Â§bAlle Spieler wurden bei Â§c" + w.getName() + " " + x + " " + y
-							+ " " + z + " Â§bwiederbelebt! Â§aEs kann weiter gehen!");
+					chl.getServer().broadcastMessage("§bAlle Spieler wurden bei §c" + w.getName() + " " + x + " " + y
+							+ " " + z + " §bwiederbelebt! §aEs kann weiter gehen!");
 				} else {
 					OfflinePlayer other = (Bukkit.getServer().getOfflinePlayer(args[0]));
 					if (other.isOnline()) {
@@ -58,15 +58,15 @@ public class Revive_Command implements CommandExecutor {
 						p.teleport(loc);
 						p.setHealth(p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
 						p.setGameMode(GameMode.SURVIVAL);
-						chl.getServer().broadcastMessage("Â§b" + p.getName() + " Â§awurde von Â§b" + sender.getName()
-								+ " Â§abei Â§c" + w.getName() + " " + x + " " + y + " " + z + " Â§awiederbelebt!");
+						chl.getServer().broadcastMessage("§b" + p.getName() + " §awurde von §b" + sender.getName()
+								+ " §abei §c" + w.getName() + " " + x + " " + y + " " + z + " §awiederbelebt!");
 					} else
-						sender.sendMessage("Â§cDieser Spieler ist nicht online!");
+						sender.sendMessage("§cDieser Spieler ist nicht online!");
 				}
 			} else
-				sender.sendMessage("Â§cBenutze: /revive <Spieler|All> [world] [x] [y] [z]");
+				sender.sendMessage("§cBenutze: /revive <Spieler|All> [world] [x] [y] [z]");
 		} else
-			sender.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+			sender.sendMessage("§cDu hast hierfür keine Berechtigung");
 		return true;
 	}
 }

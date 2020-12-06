@@ -5,8 +5,10 @@ import java.util.Random;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.GameMode;
+import org.bukkit.GameRule;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Sound;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -36,6 +38,7 @@ public class Timer_Command implements CommandExecutor {
 	public static int mlgCount = 0;
 	public static boolean mlg_active = false;
 	public Random random = new Random();
+	private boolean startedOnce = false;
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String lable, String[] args) {
@@ -45,30 +48,38 @@ public class Timer_Command implements CommandExecutor {
 					chl.checkMLGWorld();
 					if (!timer.isActive()) {
 						timer.setActive(true);
-						Bukkit.broadcastMessage("Â§aDer Timer wird fortgesetzt!");
+						Bukkit.broadcastMessage("§aDer Timer wird fortgesetzt!");
+						startedOnce = true;
+						for (Player p : Bukkit.getOnlinePlayers()) {
+							p.setGameMode(GameMode.SURVIVAL);
+						}
+						Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_DAYLIGHT_CYCLE, true);
+						Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_TILE_DROPS, true);
+						Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_ENTITY_DROPS, true);
+						Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_MOB_LOOT, true);
 					} else
-						sender.sendMessage("Â§cDer Timer lÃ¤uft bereits!");
+						sender.sendMessage("§cDer Timer läuft bereits!");
 				} else if (args[0].equalsIgnoreCase("pause")) {
 					if (timer.isActive()) {
 						timer.setActive(false);
-						Bukkit.broadcastMessage("Â§6Der Timer wurde angehalten");
+						Bukkit.broadcastMessage("§6Der Timer wurde angehalten");
 					} else
-						sender.sendMessage("Â§cDer Timer ist bereits pausiert!");
+						sender.sendMessage("§cDer Timer ist bereits pausiert!");
 				} else if (args[0].equalsIgnoreCase("reset")) {
 					timer.setTime(0);
-					Bukkit.broadcastMessage("Â§cDer Timer wurde zurÃ¼ckgesetzt!");
+					Bukkit.broadcastMessage("§cDer Timer wurde zurückgesetzt!");
 				} else if (args[0].equalsIgnoreCase("reverse")) {
 					timer.setReversed(!timer.isReversed());
 					if (timer.isReversed()) {
-						Bukkit.broadcastMessage("Â§5Der Timer lÃ¤uft nun rÃ¼ckwÃ¤rts!");
+						Bukkit.broadcastMessage("§5Der Timer läuft nun rückwärts!");
 					} else
-						Bukkit.broadcastMessage("Â§9Der Timer lÃ¤uft nun vorwÃ¤rts!");
+						Bukkit.broadcastMessage("§9Der Timer läuft nun vorwärts!");
 				} else if (args[0].equalsIgnoreCase("forcemlg")) {
 					chl.forceLoadMLGWorld();
 					if (!isMLG()) {
 						setMLG(true);
 						setCounter(getCounter() + 1);
-						Bukkit.broadcastMessage("Â§bZeit fÃ¼r einen MLG! Â§6Viel GlÃ¼ck!");
+						Bukkit.broadcastMessage("§bZeit für einen MLG! §6Viel Glück!");
 						for (Player p : Bukkit.getOnlinePlayers()) {
 							if (p.getGameMode() == GameMode.SURVIVAL && !p.isDead()) {
 								tpMLG(p);
@@ -76,25 +87,25 @@ public class Timer_Command implements CommandExecutor {
 						}
 						mlgReset();
 					} else
-						sender.sendMessage("Â§cEin MLG findet bereits statt!");
+						sender.sendMessage("§cEin MLG findet bereits statt!");
 				} else
 
-					sender.sendMessage("Â§cBenutze: /timer resume/pause/reset/reverse/set [Zeit in Sekunden]");
+					sender.sendMessage("§cBenutze: /timer resume/pause/reset/reverse/set [Zeit in Sekunden]");
 			} else if (args.length >= 2) {
 				if (args[0].equalsIgnoreCase("set")) {
 					timer.setTime(Integer.parseInt(args[1]));
 				} else
-					sender.sendMessage("Â§cBenutze: /timer resume/pause/reset/reverse/set [Zeit in Sekunden]");
+					sender.sendMessage("§cBenutze: /timer resume/pause/reset/reverse/set [Zeit in Sekunden]");
 			} else {
-				sender.sendMessage("Â§c~~~~~ Â§6Timer command Â§c~~~~~");
-				sender.sendMessage("Â§c/timer resume Â§4- Â§6Setze den Timer fort");
-				sender.sendMessage("Â§c/timer pause Â§4- Â§6Pausiere den Timer");
-				sender.sendMessage("Â§c/timer reset Â§4- Â§6Setze den Timer zurÃ¼ck");
-				sender.sendMessage("Â§c/timer set [Zeit in Sekunden] Â§4- Â§6Setze den Timer auf eine bestimmte Zeit");
-				sender.sendMessage("Â§c/timer reverse Â§4- Â§6Ã„ndere ob der Timer vor- oder rÃ¼ckwÃ¤rts lÃ¤uft");
+				sender.sendMessage("§c~~~~~ §6Timer command §c~~~~~");
+				sender.sendMessage("§c/timer resume §4- §6Setze den Timer fort");
+				sender.sendMessage("§c/timer pause §4- §6Pausiere den Timer");
+				sender.sendMessage("§c/timer reset §4- §6Setze den Timer zurück");
+				sender.sendMessage("§c/timer set [Zeit in Sekunden] §4- §6Setze den Timer auf eine bestimmte Zeit");
+				sender.sendMessage("§c/timer reverse §4- §6Ã„ndere ob der Timer vor- oder rückwärts läuft");
 			}
 		} else
-			sender.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+			sender.sendMessage("§cDu hast hierfür keine Berechtigung");
 		return true;
 
 	}
@@ -117,7 +128,7 @@ public class Timer_Command implements CommandExecutor {
 		setActive(false);
 		time = t;
 		updateStrings();
-		Bukkit.broadcastMessage("Â§bDer Timer wurde auf Â§a" + hrs + ":" + smin + ":" + ssek + " Â§bgesetzt!");
+		Bukkit.broadcastMessage("§bDer Timer wurde auf §a" + hrs + ":" + smin + ":" + ssek + " §bgesetzt!");
 	}
 
 	public boolean isActive() {
@@ -160,7 +171,7 @@ public class Timer_Command implements CommandExecutor {
 				if (isActive()) {
 					tsincemlg++;
 					if (sett.mlg && !mlg_active && Bukkit.getOnlinePlayers().size() >= 1 && tsincemlg >= rndmlg) {
-						Bukkit.broadcastMessage("Â§bZeit fÃ¼r einen MLG! Â§6Viel GlÃ¼ck!");
+						Bukkit.broadcastMessage("§bZeit für einen MLG! §6Viel Glück!");
 						mlgCount++;
 						mlg_active = true;
 						tsincemlg = 0;
@@ -178,34 +189,46 @@ public class Timer_Command implements CommandExecutor {
 							setActive(false);
 							for (Player p : Bukkit.getOnlinePlayers()) {
 								p.setGameMode(GameMode.SPECTATOR);
-								p.sendTitle("Â§4ZEIT ABGELAUFEN!", "Â§cChallenge fehgeschlagen", 10, 60, 10);
+								p.sendTitle("§4ZEIT ABGELAUFEN!", "§cChallenge fehgeschlagen", 10, 60, 10);
 							}
 							Bukkit.broadcastMessage(
-									"Â§4Die Zeit ist abgelaufen und die Challenge somit fehlgeschlagen!");
-							Bukkit.broadcastMessage("Â§aSeed: Â§b" + Bukkit.getWorlds().get(0).getSeed());
+									"§4Die Zeit ist abgelaufen und die Challenge somit fehlgeschlagen!");
+							Bukkit.broadcastMessage("§aSeed: §b" + Bukkit.getWorlds().get(0).getSeed());
 						} else {
 							time--;
 							updateStrings();
 						}
 						for (Player p : Bukkit.getOnlinePlayers()) {
 							Actionbar.sendActionBarMessage(p,
-									"Â§aVerbleibende Zeit: Â§b" + hrs + ":" + smin + ":" + ssek);
+									"§aVerbleibende Zeit: §b" + hrs + ":" + smin + ":" + ssek);
 						}
 					} else {
 						time++;
 						updateStrings();
 						for (Player p : Bukkit.getOnlinePlayers()) {
-							Actionbar.sendActionBarMessage(p, "Â§aIn Challenge: Â§b" + hrs + ":" + smin + ":" + ssek);
+							Actionbar.sendActionBarMessage(p, "§aIn Challenge: §b" + hrs + ":" + smin + ":" + ssek);
 						}
 					}
 
-				} else
+				} else {
 					for (Player p : Bukkit.getOnlinePlayers()) {
-						Actionbar.sendActionBarMessage(p, "Â§6Timer pausiert...");
+						if (!p.isOp()) {
+							p.setGameMode(GameMode.ADVENTURE);
+							if (Bukkit.getServer().getWorld("world").getSpawnLocation().distance(p.getLocation()) > 50 && !startedOnce) {
+								p.teleport(Bukkit.getServer().getWorld("world").getSpawnLocation().add(0, 10, 0));
+								p.playSound(p.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1f, 1f);
+							}
+						}
+						Actionbar.sendActionBarMessage(p, "§6Timer pausiert...");
 						if (sett.pauseParticles && p.getGameMode() != GameMode.SPECTATOR) {
 							p.getWorld().playEffect(p.getLocation(), Effect.ENDER_SIGNAL, 1);
 						}
 					}
+					Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
+					Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_TILE_DROPS, false);
+					Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_ENTITY_DROPS, false);
+					Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_MOB_LOOT, false);
+				}
 			}
 		}.runTaskTimer(chl, 0L, 20L);
 	}
@@ -248,7 +271,7 @@ public class Timer_Command implements CommandExecutor {
 			public void run() {
 				if (!p.isDead() && chl.isMLGWorld(p)) {
 					if (isActive()) {
-						p.sendMessage("Â§aDu hast den Â§bMLG Â§aerfolgreich absolviert! Â§6Weitere folgen...");
+						p.sendMessage("§aDu hast den §bMLG §aerfolgreich absolviert! §6Weitere folgen...");
 						p.setInvulnerable(true);
 						mlgBack(p, loc, inv);
 					} else
@@ -283,7 +306,7 @@ public class Timer_Command implements CommandExecutor {
 			@Override
 			public void run() {
 				setMLG(false);
-				Bukkit.broadcastMessage("Â§aDas war der Â§6" + getCounter() + ". Â§bMLGÂ§a!");
+				Bukkit.broadcastMessage("§aDas war der §6" + getCounter() + ". §bMLG§a!");
 			}
 		}.runTaskLater(chl, 180);
 	}

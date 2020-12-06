@@ -20,66 +20,66 @@ public class Settings_Command implements CommandExecutor {
 				if (p.hasPermission("challenges.settings.view")) {
 					p.openInventory(gui.getMainGUI());
 				} else
-					p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+					p.sendMessage("§cDu hast hierfür keine Berechtigung");
 			} else if (args.length >= 1) {
 				if (args[0].equalsIgnoreCase("get")) {
 					if (p.hasPermission("challenges.settings.get")) {
-						p.sendMessage("Â§c~~~~~Â§6Aktuelle EinstellungenÂ§c~~~~~");
-						p.sendMessage("Â§6Erlaube Crafting =Â§c " + sett.craftingTable);
-						p.sendMessage("Â§6Erlaube Handeln =Â§c " + sett.trading);
-						p.sendMessage("Â§6Schleichschaden =Â§c " + sett.sneakDMG + "HP");
-						p.sendMessage("Â§6Tod bei Fallschaden =Â§c " + sett.noFall);
-						p.sendMessage("Â§6Alle sterben bei Fallschaden =Â§c " + sett.noFallKillAll);
-						p.sendMessage("Â§6Tod bei BlockBreak =Â§c " + sett.noBreak);
-						p.sendMessage("Â§6BlockBreak tÃ¶tet alle =Â§c " + sett.noBreakKillAll);
-						p.sendMessage("Â§6Tod bei BlockPlace =Â§c " + sett.noPlace);
-						p.sendMessage("Â§6BlockPlace tÃ¶tet alle =Â§c " + sett.noPlaceKillAll);
-						p.sendMessage("Â§6Random Drops =Â§c " + sett.rndDrops);
-						p.sendMessage("Â§6CutClean Feuerstein =Â§c " + sett.cutGravel);
-						p.sendMessage("Â§6CutClean Eisen =Â§c " + sett.cutIron);
-						p.sendMessage("Â§6CutClean Gold =Â§c " + sett.cutGold);
-						p.sendMessage("Â§6CutClean Fleisch =Â§c " + sett.cutFood);
-						p.sendMessage("Â§6MLG Challenge =Â§c " + sett.mlg);
-						p.sendMessage("Â§6MLG-Fail tÃ¶tet alle Spieler =Â§c " + sett.mlgKillAll);
-						p.sendMessage("Â§6Maximale Zeit bis MLG =Â§c " + sett.mlgTime);
-						p.sendMessage("Â§6Boden ist Lava =Â§c " + sett.lavaFloor);
-						p.sendMessage("Â§6Zahl nutzbarer Slots =Â§c " + sett.invSlots);
-						p.sendMessage("Â§6BlockOffHand =Â§c " + sett.blockOH);
-						p.sendMessage("Â§6Maximale HP =Â§c " + sett.maxHP);
-						p.sendMessage("Â§6Geteilte Herzen =Â§c " + sett.shareHP);
-						p.sendMessage("Â§6Respawn =Â§c " + sett.respawn);
-						p.sendMessage("Â§6Ein Leben fÃ¼r alle =Â§c " + sett.oneLife);
-						p.sendMessage("Â§6Schaden in Chat =Â§c " + sett.chatDMG);
-						p.sendMessage("Â§6KeepInventory = Â§c " + sett.keepInv);
-						p.sendMessage("Â§6NatÃ¼rliche Regeneration = Â§c " + sett.natRegen);
-						p.sendMessage("Â§6Jegliche Regeneration = Â§c " + sett.regen);
-						p.sendMessage("Â§6HP in TAB-Liste =Â§c " + sett.tabHP);
-						p.sendMessage("Â§6Partikel bei Pause =Â§c " + sett.pauseParticles);
-						p.sendMessage("Â§6Einstellungstitel =Â§c " + sett.settingsTitle);
-						p.sendMessage("Â§6PvP =Â§c " + sett.pvp);
-						p.sendMessage("Â§6Position in Todesnachricht =Â§c " + sett.deathPos);
+						p.sendMessage("§c~~~~~§6Aktuelle Einstellungen§c~~~~~");
+						p.sendMessage("§6Erlaube Crafting =§c " + sett.craftingTable);
+						p.sendMessage("§6Erlaube Handeln =§c " + sett.trading);
+						p.sendMessage("§6Schleichschaden =§c " + sett.sneakDMG + "HP");
+						p.sendMessage("§6Tod bei Fallschaden =§c " + sett.noFall);
+						p.sendMessage("§6Alle sterben bei Fallschaden =§c " + sett.noFallKillAll);
+						p.sendMessage("§6Tod bei BlockBreak =§c " + sett.noBreak);
+						p.sendMessage("§6BlockBreak tötet alle =§c " + sett.noBreakKillAll);
+						p.sendMessage("§6Tod bei BlockPlace =§c " + sett.noPlace);
+						p.sendMessage("§6BlockPlace tötet alle =§c " + sett.noPlaceKillAll);
+						p.sendMessage("§6Random Drops =§c " + sett.rndDrops);
+						p.sendMessage("§6CutClean Feuerstein =§c " + sett.cutGravel);
+						p.sendMessage("§6CutClean Eisen =§c " + sett.cutIron);
+						p.sendMessage("§6CutClean Gold =§c " + sett.cutGold);
+						p.sendMessage("§6CutClean Fleisch =§c " + sett.cutFood);
+						p.sendMessage("§6MLG Challenge =§c " + sett.mlg);
+						p.sendMessage("§6MLG-Fail tötet alle Spieler =§c " + sett.mlgKillAll);
+						p.sendMessage("§6Maximale Zeit bis MLG =§c " + sett.mlgTime);
+						p.sendMessage("§6Boden ist Lava =§c " + sett.lavaFloor);
+						p.sendMessage("§6Zahl nutzbarer Slots =§c " + sett.invSlots);
+						p.sendMessage("§6BlockOffHand =§c " + sett.blockOH);
+						p.sendMessage("§6Maximale HP =§c " + sett.maxHP);
+						p.sendMessage("§6Geteilte Herzen =§c " + sett.shareHP);
+						p.sendMessage("§6Respawn =§c " + sett.respawn);
+						p.sendMessage("§6Ein Leben für alle =§c " + sett.oneLife);
+						p.sendMessage("§6Schaden in Chat =§c " + sett.chatDMG);
+						p.sendMessage("§6KeepInventory = §c " + sett.keepInv);
+						p.sendMessage("§6Natürliche Regeneration = §c " + sett.natRegen);
+						p.sendMessage("§6Jegliche Regeneration = §c " + sett.regen);
+						p.sendMessage("§6HP in TAB-Liste =§c " + sett.tabHP);
+						p.sendMessage("§6Partikel bei Pause =§c " + sett.pauseParticles);
+						p.sendMessage("§6Einstellungstitel =§c " + sett.settingsTitle);
+						p.sendMessage("§6PvP =§c " + sett.pvp);
+						p.sendMessage("§6Position in Todesnachricht =§c " + sett.deathPos);
 					} else
-						p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+						p.sendMessage("§cDu hast hierfür keine Berechtigung");
 				} else if (args[0].equalsIgnoreCase("shuffledrops")) {
 					if (p.hasPermission("challenges.settings.modify")) {
 						chl.getRandomDropsManager().shuffleItems();
-						Bukkit.broadcastMessage("Â§aRandom Drops wurden neu gemischt!");
+						Bukkit.broadcastMessage("§aRandom Drops wurden neu gemischt!");
 					} else
-						p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+						p.sendMessage("§cDu hast hierfür keine Berechtigung");
 				} else
 					sendHelp(p);
 			} else
 				sendHelp(p);
 		} else
-			sender.sendMessage("Â§cKein Konsolenbefehl!");
+			sender.sendMessage("§cKein Konsolenbefehl!");
 		return true;
 	}
 
 	private void sendHelp(Player p) {
-		p.sendMessage("Â§c~~~~~ Â§6Settings Command Â§c~~~~~");
-		p.sendMessage("Â§c/Settings Â§4- Â§6Ã–ffne die GUI");
-		p.sendMessage("Â§c/Settings Get Â§4- Â§6Liste alle Einstellungen auf");
-		p.sendMessage("Â§c/Settings ShuffleDrops Â§4- Â§6Mische die RandomDrops neu");
+		p.sendMessage("§c~~~~~ §6Settings Command §c~~~~~");
+		p.sendMessage("§c/Settings §4- §6Ã–ffne die GUI");
+		p.sendMessage("§c/Settings Get §4- §6Liste alle Einstellungen auf");
+		p.sendMessage("§c/Settings ShuffleDrops §4- §6Mische die RandomDrops neu");
 	}
 
 }

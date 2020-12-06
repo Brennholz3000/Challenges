@@ -15,7 +15,7 @@ public class SBManager {
 		Scoreboard sb = manager.getNewScoreboard();
 		Objective tabHP = sb.registerNewObjective("Healthpoints", "health", "&cHP");
 		tabHP.setDisplaySlot(DisplaySlot.PLAYER_LIST);
-		tabHP.setDisplayName("Â§cHP");
+		tabHP.setDisplayName("§cHP");
 		tabHP.setRenderType(RenderType.HEARTS);
 		p.setScoreboard(sb);
 	}

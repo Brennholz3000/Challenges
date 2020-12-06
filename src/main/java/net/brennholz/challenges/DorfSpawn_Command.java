@@ -36,13 +36,13 @@ public class DorfSpawn_Command implements CommandExecutor {
 							}
 						}
 					} else
-						p.sendMessage("Â§cKonnte kein Dorf in der NÃ¤he finden!");
+						p.sendMessage("§cKonnte kein Dorf in der Nähe finden!");
 				} else
-					p.sendMessage("Â§cDu befindest dich nicht in der Oberwelt!");
+					p.sendMessage("§cDu befindest dich nicht in der Oberwelt!");
 			} else
-				p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+				p.sendMessage("§cDu hast hierfür keine Berechtigung");
 		} else
-			sender.sendMessage("Â§cKein Konsolenbefehl!");
+			sender.sendMessage("§cKein Konsolenbefehl!");
 		return true;
 	}
 

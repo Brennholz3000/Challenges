@@ -18,10 +18,10 @@ public class Fly implements CommandExecutor {
 				if (args.length == 0) {
 					if (p.getAllowFlight()) {
 						p.setAllowFlight(false);
-						p.sendMessage("Â§7Der Flugmodus wurde Â§cdeaktiviertÂ§7!");
+						p.sendMessage("§7Der Flugmodus wurde §cdeaktiviert§7!");
 					} else {
 						p.setAllowFlight(true);
-						p.sendMessage("Â§7Der Flugmodus wurde Â§aaktiviertÂ§7!");
+						p.sendMessage("§7Der Flugmodus wurde §aaktiviert§7!");
 					}
 				} else {
 					OfflinePlayer offp = Bukkit.getOfflinePlayer(args[0]);
@@ -29,20 +29,20 @@ public class Fly implements CommandExecutor {
 						Player onp = (Player) offp;
 						if (onp.getAllowFlight()) {
 							onp.setAllowFlight(false);
-							onp.sendMessage("Â§7Der Flugmodus wurde Â§cdeaktiviertÂ§7!");
-							p.sendMessage("Â§7Flugmodus fÃ¼r Â§6" + onp.getName() + " Â§cdeaktiviert!");
+							onp.sendMessage("§7Der Flugmodus wurde §cdeaktiviert§7!");
+							p.sendMessage("§7Flugmodus für §6" + onp.getName() + " §cdeaktiviert!");
 						} else {
 							onp.setAllowFlight(true);
-							onp.sendMessage("Â§7Der Flugmodus wurde Â§aaktiviertÂ§7!");
-							p.sendMessage("Â§7Flugmodus fÃ¼r Â§6" + onp.getName() + " Â§aaktiviert!");
+							onp.sendMessage("§7Der Flugmodus wurde §aaktiviert§7!");
+							p.sendMessage("§7Flugmodus für §6" + onp.getName() + " §aaktiviert!");
 						}
 					} else
-						p.sendMessage("Â§6BrenntasaÂ§8.Â§6net Â§8Â» Â§6" + offp.getName() + " Â§cist nicht online!");
+						p.sendMessage("§6Brenntasa§8.§6net §8» §6" + offp.getName() + " §cist nicht online!");
 				}
 			} else
-				p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+				p.sendMessage("§cDu hast hierfür keine Berechtigung");
 		} else
-			sender.sendMessage("Â§cKein Konsolenbefehl!");
+			sender.sendMessage("§cKein Konsolenbefehl!");
 		return true;
 	}
 }

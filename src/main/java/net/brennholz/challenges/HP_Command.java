@@ -25,7 +25,7 @@ public class HP_Command implements CommandExecutor {
 						pp.setHealth(pp.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue());
 						pp.setFoodLevel(20);
 					}
-					Bukkit.broadcastMessage("Â§b" + sender.getName() + " Â§ahat alle geheilt!");
+					Bukkit.broadcastMessage("§b" + sender.getName() + " §ahat alle geheilt!");
 				} else if (args[0].equalsIgnoreCase("sync")) {
 					if (sender instanceof Player) {
 						Player p = (Player) sender;
@@ -33,9 +33,9 @@ public class HP_Command implements CommandExecutor {
 						for (Player pp : Bukkit.getOnlinePlayers()) {
 							pp.setHealth(hp);
 						}
-						Bukkit.broadcastMessage("Â§aLeben wurden synchronisiert!");
+						Bukkit.broadcastMessage("§aLeben wurden synchronisiert!");
 					} else
-						sender.sendMessage("Â§cKein Konsolenbefehl!");
+						sender.sendMessage("§cKein Konsolenbefehl!");
 				} else
 					sendHelp(sender);
 			} else if (args.length == 2) {
@@ -43,23 +43,23 @@ public class HP_Command implements CommandExecutor {
 					Double newHP = Double.parseDouble(args[1]);
 					if (newHP >= 1 && newHP <= 2048) {
 						sett.maxHP = newHP;
-						gui.setLifeGUI(14, Material.STONE_BUTTON, "Â§6Maximale Leben = Â§c" + sett.maxHP + "Â§6HP",
-								"Â§7Linksklick: +1", "Â§7Rechtsklick: -1", "Â§7 Shift-Linksklick: +10",
-								"Â§7 Shift-Rechtsklick: -10");
+						gui.setLifeGUI(14, Material.STONE_BUTTON, "§6Maximale Leben = §c" + sett.maxHP + "§6HP",
+								"§7Linksklick: +1", "§7Rechtsklick: -1", "§7 Shift-Linksklick: +10",
+								"§7 Shift-Rechtsklick: -10");
 						for (Player pp : Bukkit.getOnlinePlayers()) {
 							pp.getAttribute(Attribute.GENERIC_MAX_HEALTH).setBaseValue(newHP);
 							pp.setHealth(newHP);
 						}
 						settingsChangeString("Maximale HP", newHP.toString());
 					} else
-						sender.sendMessage("Â§cUngÃ¼ltiger Wert (1-2048)");
+						sender.sendMessage("§cUngültiger Wert (1-2048)");
 				} else if (args[0].equalsIgnoreCase("get")) {
 					OfflinePlayer other = (Bukkit.getOfflinePlayer(args[1]));
 					if (other.isOnline()) {
 						Player p = (Player) other;
-						sender.sendMessage("Â§6" + p.getName() + " Â§ebesitzt derzeit Â§6" + p.getHealth() + "HPÂ§e!");
+						sender.sendMessage("§6" + p.getName() + " §ebesitzt derzeit §6" + p.getHealth() + "HP§e!");
 					} else
-						sender.sendMessage("Â§cDieser Spieler ist nicht online!");
+						sender.sendMessage("§cDieser Spieler ist nicht online!");
 				} else
 					sendHelp(sender);
 			} else if (args.length >= 3) {
@@ -73,53 +73,53 @@ public class HP_Command implements CommandExecutor {
 								&& !(finaladdhp < 0)) {
 							p.setHealth(finaladdhp);
 							p.sendMessage(
-									"Â§aDu wurdest von Â§b" + sender.getName() + " Â§aum Â§c" + args[2] + "HP Â§ageheilt!");
-							sender.sendMessage("Â§aDu hast Â§b" + p.getName() + " Â§aum Â§c" + args[2] + "HP Â§ageheilt!");
+									"§aDu wurdest von §b" + sender.getName() + " §aum §c" + args[2] + "HP §ageheilt!");
+							sender.sendMessage("§aDu hast §b" + p.getName() + " §aum §c" + args[2] + "HP §ageheilt!");
 						} else
-							sender.sendMessage("Â§cUnmÃ¶gliche Operation");
+							sender.sendMessage("§cUnmögliche Operation");
 					} else if (args[0].equalsIgnoreCase("remove")) {
 						if (!(finalremhp > p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue())
 								&& !(finalremhp < 0)) {
 							p.setHealth(finalremhp);
-							p.sendMessage("Â§4" + sender.getName() + " Â§chat dir Â§4" + args[2] + "HP Â§centfernt!");
-							sender.sendMessage("Â§cDu hast Â§4" + p.getName() + " " + args[2] + "HP Â§centfernt!");
+							p.sendMessage("§4" + sender.getName() + " §chat dir §4" + args[2] + "HP §centfernt!");
+							sender.sendMessage("§cDu hast §4" + p.getName() + " " + args[2] + "HP §centfernt!");
 						} else
-							sender.sendMessage("Â§cUnmÃ¶gliche Operation!");
+							sender.sendMessage("§cUnmögliche Operation!");
 					} else if (args[0].equalsIgnoreCase("set")) {
 						if (!(Double.parseDouble(args[2]) > p.getAttribute(Attribute.GENERIC_MAX_HEALTH).getBaseValue())
 								&& !(Double.parseDouble(args[2]) < 0)) {
 							p.setHealth(Double.parseDouble(args[2]));
-							p.sendMessage("Â§6" + sender.getName() + " Â§ehat deine HP auf Â§6" + args[2] + " Â§egesetzt!");
+							p.sendMessage("§6" + sender.getName() + " §ehat deine HP auf §6" + args[2] + " §egesetzt!");
 							sender.sendMessage(
-									"Â§eDu hast die HP von Â§6" + p.getName() + " Â§eauf Â§6" + args[2] + " Â§egesetzt!");
+									"§eDu hast die HP von §6" + p.getName() + " §eauf §6" + args[2] + " §egesetzt!");
 						} else
-							sender.sendMessage("Â§cUnmÃ¶gliche Operation");
+							sender.sendMessage("§cUnmögliche Operation");
 					} else
 						sendHelp(sender);
 				} else
-					sender.sendMessage("Â§cDieser Spieler ist nicht online!");
+					sender.sendMessage("§cDieser Spieler ist nicht online!");
 			} else
 				sendHelp(sender);
 		} else
-			sender.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+			sender.sendMessage("§cDu hast hierfür keine Berechtigung");
 		return true;
 	}
 
 	private void sendHelp(CommandSender s) {
-		s.sendMessage("Â§c~~~~~ Â§6HP Command Â§c~~~~~");
-		s.sendMessage("Â§c/HP Get <Spieler> Â§4- Â§6Erhalte die aktuelen HP eines Spielers");
-		s.sendMessage("Â§c/HP HealAll Â§4- Â§6Heile alle Spieler");
-		s.sendMessage("Â§c/HP Sync Â§4- Â§6Die Herzen alle Spieler werden mit deinen Synchronisiert");
-		s.sendMessage("Â§c/HP Add <Spieler> <Wert> Â§4- Â§6FÃ¼ge einem Spieler die angegebene Zahl an Herzen hinzu");
-		s.sendMessage("Â§c/HP Remove <Spieler> <Wert> Â§4- Â§6Entferne einem Spieler die angegebene Zahl an Herzen");
-		s.sendMessage("Â§c/HP Set <Spieler> <Wert> Â§4- Â§6Setze die Herzen eines Spieler auf die angegebene Zahl");
-		s.sendMessage("Â§c/HP Max <Wert> Â§4- Â§6Setze die maximalen HP aller Spieler");
+		s.sendMessage("§c~~~~~ §6HP Command §c~~~~~");
+		s.sendMessage("§c/HP Get <Spieler> §4- §6Erhalte die aktuelen HP eines Spielers");
+		s.sendMessage("§c/HP HealAll §4- §6Heile alle Spieler");
+		s.sendMessage("§c/HP Sync §4- §6Die Herzen alle Spieler werden mit deinen Synchronisiert");
+		s.sendMessage("§c/HP Add <Spieler> <Wert> §4- §6Füge einem Spieler die angegebene Zahl an Herzen hinzu");
+		s.sendMessage("§c/HP Remove <Spieler> <Wert> §4- §6Entferne einem Spieler die angegebene Zahl an Herzen");
+		s.sendMessage("§c/HP Set <Spieler> <Wert> §4- §6Setze die Herzen eines Spieler auf die angegebene Zahl");
+		s.sendMessage("§c/HP Max <Wert> §4- §6Setze die maximalen HP aller Spieler");
 	}
 
 	public void settingsChangeString(String Setting, String value) {
 		if (sett.settingsTitle) {
 			for (Player p : Bukkit.getOnlinePlayers()) {
-				p.sendTitle("Â§c" + Setting, " Â§bist nun: " + value, 10, 40, 10);
+				p.sendTitle("§c" + Setting, " §bist nun: " + value, 10, 40, 10);
 			}
 		}
 	}

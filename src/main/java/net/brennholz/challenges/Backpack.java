@@ -17,7 +17,7 @@ public class Backpack implements CommandExecutor {
 
 	private Challenges chl = Challenges.getplugin();
 
-	public static Inventory Backpack = Bukkit.createInventory(null, 27, "Â§6Backpack");
+	public static Inventory Backpack = Bukkit.createInventory(null, 27, "§6Backpack");
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -26,9 +26,9 @@ public class Backpack implements CommandExecutor {
 			if (p.hasPermission("challenges.backpack")) {
 				p.openInventory(Backpack);
 			} else
-				p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+				p.sendMessage("§cDu hast hierfür keine Berechtigung");
 		} else
-			sender.sendMessage("Â§cKein Konsolenbefehl!");
+			sender.sendMessage("§cKein Konsolenbefehl!");
 		return true;
 	}
 
@@ -54,6 +54,7 @@ public class Backpack implements CommandExecutor {
 		Iterator<?> var2 = chl.getBackpackConfig().getValues(false).entrySet().iterator();
 		int slot;
 		while (var2.hasNext()) {
+			@SuppressWarnings("rawtypes")
 			Map.Entry entry = (Map.Entry) var2.next();
 			try {
 				slot = Integer.parseInt((String) entry.getKey());
@@ -62,7 +63,7 @@ public class Backpack implements CommandExecutor {
 				continue;
 			}
 			if (slot >= Backpack.getSize()) {
-				chl.getServer().broadcastMessage("Â§cSlot " + slot + " befindet sich auÃŸerhalb des Inventars!");
+				chl.getServer().broadcastMessage("§cSlot " + slot + " befindet sich auÃŸerhalb des Inventars!");
 			} else {
 				MemorySection memorySection = (MemorySection) entry.getValue();
 				ItemStack deserialized = ItemStack.deserialize(memorySection.getValues(false));

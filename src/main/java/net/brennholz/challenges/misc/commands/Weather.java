@@ -18,22 +18,22 @@ public class Weather implements CommandExecutor {
 				if (lable.equalsIgnoreCase("sun")) {
 					w.setStorm(false);
 					w.setThundering(false);
-					p.sendMessage("Â§7Das Wetter wurde zu Â§6Sonnenschein Â§7geÃ¤ndert");
+					p.sendMessage("§7Das Wetter wurde zu §6Sonnenschein §7geändert");
 				}
 				if (lable.equalsIgnoreCase("rain")) {
 					w.setStorm(true);
 					w.setThundering(false);
-					p.sendMessage("Â§7Das Wetter wurde zu Â§6Regen Â§7geÃ¤ndert");
+					p.sendMessage("§7Das Wetter wurde zu §6Regen §7geändert");
 				}
 				if (lable.equalsIgnoreCase("thunder")) {
 					w.setStorm(true);
 					w.setThundering(true);
-					p.sendMessage("Â§7Das Wetter wurde zu Â§6Gewitter Â§7geÃ¤ndert");
+					p.sendMessage("§7Das Wetter wurde zu §6Gewitter §7geändert");
 				}
 			} else
-				p.sendMessage("Â§cDu hast hierfÃ¼r keine Berechtigung");
+				p.sendMessage("§cDu hast hierfür keine Berechtigung");
 		} else
-			sender.sendMessage("Â§cKein Konsolenbefehl!");
+			sender.sendMessage("§cKein Konsolenbefehl!");
 		return true;
 	}
 }

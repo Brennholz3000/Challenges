@@ -1,0 +1,51 @@
+name: Challenges
+main: net.brennholz.challenges.Challenges
+version: 2.2.1
+api-version: 1.13
+description: Contains challenges
+load: STARTUP
+author: Brennholz3000,Asecave
+commands:
+  hp:
+    description: Verwalte die HP eines Spielers
+    usage: Benutze /hp healall/get/add/remove/set/max [Spieler] [Wert]
+  coords:
+    description: Teile oder speichere deine Position!
+    usage: Benutze /coords share/get/save/delete [Name]
+  settings:
+    description: Verwalte die Plugineinstellungen
+    usage: Benutze /settings help
+  revive:
+    description: Wiederbelebe einen gestorbenen Spieler!
+    usage: Benutze /revive <Spieler> [world] [x] [y] [z]
+  timer:
+    description: Verwalte den Timer
+    usage: Benutze /timer resume/pause/reset/set [Zeit in Sekunden]
+  challenges:
+    description: Main Command
+    usage: Benutze /Challenges
+  backpack:
+    description: Oeffne ein Backpack
+    usage: Benutze /backpack oder /bp
+    aliases: [bp]
+  reset:
+    description: Setzte die Welt zurueck
+    usage: Benutze /Reset
+  dorfspawn:
+    description: Sucht nach dem naechsten Dorf
+    usage: Benutze /DorfSpawn
+  gamemode:
+    description: Aendere deinen Spielmodus
+    usage: Benutze /gamemode
+    aliases: [gm]
+  fly:
+    description: De-/Aktiviere Fly
+    usage: Benutze /Fly
+  day:
+    description: Aendere die Tageszeit
+    usage: Benutze /day
+    aliases: [night]
+  sun:
+    description: Aendere das Wetter
+    usage: Benutze /sun
+    aliases: [rain, thunder]

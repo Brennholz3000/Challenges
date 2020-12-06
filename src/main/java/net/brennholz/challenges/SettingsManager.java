@@ -120,7 +120,7 @@ public class SettingsManager {
 	public void updateInvSlots(Player p) {
 		ItemStack item = new ItemStack(Material.BARRIER);
 		ItemMeta meta = item.getItemMeta();
-		meta.setDisplayName("ยง4GESPERRT");
+		meta.setDisplayName("ง4GESPERRT");
 		item.setItemMeta(meta);
 		for (int i = 0; i <= 44; i++) {
 			if (p.getInventory().getItem(i) != null && p.getInventory().getItem(i).getType() == Material.BARRIER) {
