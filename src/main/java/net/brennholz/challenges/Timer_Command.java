@@ -54,6 +54,9 @@ public class Timer_Command implements CommandExecutor {
 							p.setGameMode(GameMode.SURVIVAL);
 						}
 						Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_DAYLIGHT_CYCLE, true);
+						Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_TILE_DROPS, true);
+						Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_ENTITY_DROPS, true);
+						Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_MOB_LOOT, true);
 					} else
 						sender.sendMessage("§cDer Timer läuft bereits!");
 				} else if (args[0].equalsIgnoreCase("pause")) {
@@ -211,7 +214,6 @@ public class Timer_Command implements CommandExecutor {
 					for (Player p : Bukkit.getOnlinePlayers()) {
 						if (!p.isOp()) {
 							p.setGameMode(GameMode.ADVENTURE);
-							p.getInventory().clear();
 							if (Bukkit.getServer().getWorld("world").getSpawnLocation().distance(p.getLocation()) > 50 && !startedOnce) {
 								p.teleport(Bukkit.getServer().getWorld("world").getSpawnLocation().add(0, 10, 0));
 								p.playSound(p.getLocation(), Sound.ENTITY_ENDERMAN_TELEPORT, 1f, 1f);
@@ -223,6 +225,9 @@ public class Timer_Command implements CommandExecutor {
 						}
 					}
 					Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_DAYLIGHT_CYCLE, false);
+					Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_TILE_DROPS, false);
+					Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_ENTITY_DROPS, false);
+					Bukkit.getServer().getWorld("world").setGameRule(GameRule.DO_MOB_LOOT, false);
 				}
 			}
 		}.runTaskTimer(chl, 0L, 20L);
